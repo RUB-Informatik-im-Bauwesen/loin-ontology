@@ -1,7 +1,7 @@
-# baseURI: http://www.inf.bi.ruhr-uni-bochum.de/loinontology
+# baseURI: http://www.inf.bi.rub.de/loin/ns
 # prefix: loin
 
-@prefix loin: <http://www.inf.bi.ruhr-uni-bochum.de/loinontology#> .
+@prefix loin: <http://www.inf.bi.rub.de/loin/ns#> .
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix Container: <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
 @prefix Linkset: <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset#> .
@@ -12,26 +12,45 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
 
-<http://www.inf.bi.ruhr-uni-bochum.de/loinontology>
+<http://www.inf.bi.rub.de/loin/ns>
   rdf:type owl:Ontology ;
   dc:created "2023-01-30"^^xsd:date ;
-  dc:creator [
-      rdf:type foaf:Person ;
-      foaf:name "Liu Liu, Ruhr University Bochum" ;
+    dc:creator [
+      rdf:type schema:Person ;
+      schema:email <mailto:liu.liu-m6r@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-5907-7609> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/liu_liu.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Liu Liu" ;
     ] ;
   dc:creator [
-      rdf:type foaf:Person ;
-      foaf:name "Philipp Hagedorn, Ruhr University Bochum" ;
+      rdf:type schema:Person ;
+      schema:email <mailto:philipp.hagedorn-n6v@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0002-6249-243X> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/philipp_hagedorn.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Philipp Hagedorn" ;
     ] ;
-  dc:description "The Level of Information Need (LOIN) Ontology is defined for specifying the information requirements. The LOIN ontology is based on BS EN 17412-1 (2020). Furthermore, it is specified with IDS developed by buildingSMART International and Information container for linked document delivery (ICDD) ISO 21597-1 (2020), "@en ;
-  dc:publisher [
-      rdf:type foaf:Organization ;
-      foaf:name "Chair of Computing in Engineering, Ruhr University Bochum" ;
+  dc:description "The Level of Information Need (LOIN) Ontology is defined for specifying information requirements for delivery of data in a buildings' life cycle. The LOIN ontology is based on the standard BS EN 17412-1 (2020). Furthermore, it is extended with vocabulary for connecing Information Delivery Specifications (IDS) and Information containers for linked document delivery (ICDD) as per ISO 21597-1 (2020). "@en ;
+    dc:publisher [
+      rdf:type schema:Organization ;
+      schema:identifier <https://www.inf.bi.rub.de> ;
+      schema:name "Chair of Computing in Engineering, Ruhr University Bochum" ;
+      schema:parentOrganization [
+          rdf:type schema:Organization ;
+          schema:name "Ruhr University Bochum, Germany" ;
+        ] ;
     ] ;
+      dc:license <https://creativecommons.org/licenses/by/4.0/> ;
   dc:rights "Copyright 2023 by Chair of Computing in Engineering, Ruhr University Bochum" ;
-  dc:source "https://github.com/RUB-Informatik-im-Bauwesen/loin"^^xsd:anyURI ;
-  dc:title "Level of Information Need Ontology (LOIN)"@en ;
+  dc:source "https://github.com/RUB-Informatik-im-Bauwesen/loin-ontology"^^xsd:anyURI ;
+  dc:title "Level of Information Need (LOIN) Ontology"@en ;
   vann:preferredNamespacePrefix "loin" ;
   owl:imports <https://standards.iso.org/iso/21597/-1/ed-1/en/Container> ;
   owl:imports <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset> ;
