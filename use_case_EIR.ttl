@@ -1,0 +1,189 @@
+# baseURI: http://example.org/EC3-2023/use_case_EIR
+# prefix: uc
+
+@prefix uc: <http://example.org/EC3-2023/use_case_EIR#> .
+@prefix loin: <http://www.inf.bi.ruhr-uni-bochum.de/loinontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/EC3-2023/use_case_EIR>
+  rdf:type owl:Ontology ;
+  rdfs:comment "This example demonstrates how to use the LOIN ontology for defining the information requirements. The use case is based on the pavement inspection. Four properties are defined as required information. Two IFC-model are defined as documents. One as-built model provides the pavement information for inspection. One road inspection model provides inspection layer, which should be attached with the four required properties, and be delivered as inspection result."
+  owl:imports <http://www.inf.bi.ruhr-uni-bochum.de/loinontology> ;
+  owl:versionInfo "0.1" ;
+.
+uc:As_built_Model
+  rdf:type loin:Document ;
+  loin:belongsToInformationContent uc:ConditionProperty ;
+  loin:hasDocumentSpecification uc:IFC ;
+  loin:hasDocumentSpecification uc:Object_Model_3D ;
+  loin:hasDocumentSpecification loin:Provided_As_Information ;
+  rdfs:comment "The IFC model, provided as-built information of a road section for inspection." ;
+  rdfs:label "As-built model" ;
+.
+uc:AssetManager
+  rdf:type loin:InformationReceiver ;
+  rdfs:label "Asset manager of the to inspected road section" ;
+.
+uc:ConditionProperty
+  rdf:type loin:IDSDataDefinition ;
+  loin:description "There are four condition properties, which value should be delivered by information prodiver through inspection. The properties should be attached to inspection layer of the IFC data model. " ;
+  loin:hasApplicability uc:IFCElementProxy ;
+  loin:hasRequirement uc:CrackWidth ;
+  loin:hasRequirement uc:Evenness ;
+  loin:hasRequirement uc:Friction ;
+  loin:hasRequirement uc:RutDepth ;
+  rdfs:label "Condition property for asphalt surface" ;
+.
+uc:CondotionAssessment
+  rdf:type loin:Purpose ;
+  rdfs:label "condition assessement of a road section" ;
+.
+uc:CrackWidth
+  rdf:type loin:Property ;
+  loin:belongsToPset [
+      rdf:type loin:PsetName ;
+      loin:RestrictionFormulation "property of pavement condition" ;
+      loin:hasRestrictionType loin:SimpleValue ;
+    ] ;
+  loin:hasIFCDataType [
+      rdf:type loin:IFCDataType ;
+      loin:RestrictionFormulation "IfcLabel" ;
+    ] ;
+  loin:hasPropertyName [
+      rdf:type loin:PropertyName ;
+      loin:RestrictionFormulation "CrackWidth_TP3" ;
+      loin:hasRestrictionType loin:SimpleValue ;
+    ] ;
+  loin:hasRequirementType "Required" ;
+  rdfs:label "Property crack width with abbreviation TP3" ;
+.
+uc:EngineeringOffice
+  rdf:type loin:InformationProvider ;
+  rdfs:label "An engineering office" ;
+.
+uc:Evenness
+  rdf:type loin:Property ;
+  loin:belongsToPset [
+      rdf:type loin:PsetName ;
+      loin:RestrictionFormulation "property of pavement condition" ;
+      loin:hasRestrictionType loin:SimpleValue ;
+    ] ;
+  loin:hasIFCDataType [
+      rdf:type loin:IFCDataType ;
+      loin:RestrictionFormulation "IfcLabel" ;
+    ] ;
+  loin:hasPropertyName [
+      rdf:type loin:PropertyName ;
+      loin:RestrictionFormulation "Evenness_TP1a" ;
+      loin:hasRestrictionType loin:SimpleValue ;
+    ] ;
+  loin:hasRequirementType "Required" ;
+  rdfs:label "Property eveness with abbreviation TP1a" ;
+.
+uc:Friction
+  rdf:type loin:Property ;
+  loin:belongsToPset [
+      rdf:type loin:PsetName ;
+      loin:RestrictionFormulation "property of pavement condition" ;
+      loin:hasRestrictionType loin:SimpleValue ;
+    ] ;
+  loin:hasIFCDataType [
+      rdf:type loin:IFCDataType ;
+      loin:RestrictionFormulation "IfcLabel" ;
+    ] ;
+  loin:hasPropertyName [
+      rdf:type loin:PropertyName ;
+      loin:RestrictionFormulation "Friction_TP2" ;
+      loin:hasRestrictionType loin:SimpleValue ;
+    ] ;
+  loin:hasRequirementType "Required" ;
+  rdfs:label "Property friction with abbreviation TP2" ;
+.
+uc:IFC
+  rdf:type loin:DocumentFormat ;
+  rdfs:label "IFC file" ;
+.
+uc:IFCElementProxy
+  rdf:type loin:Entity ;
+  loin:hasEntityName [
+      rdf:type loin:EntityName ;
+      loin:RestrictionFormulation "IFCBuildingElementProxy" ;
+      loin:hasRestrictionType loin:SimpleValue ;
+    ] ;
+  rdfs:label "IFCBuildingElementProxy is the IFC class to applied with defined requirements" ;
+.
+uc:Inspection
+  rdf:type loin:InformationDeliveryMilestone ;
+  loin:hasProvider uc:EngineeringOffice ;
+  loin:hasPurpose uc:CondotionAssessment ;
+  loin:hasReceiver uc:AssetManager ;
+  rdfs:label "Inspection for a road section" ;
+.
+uc:InspectionCondition
+  rdf:type loin:Information ;
+  loin:hasIdentification [
+      rdf:type loin:Identification ;
+      loin:hasBreakdownStructure [
+          rdf:type loin:BreakdownStructure ;
+          loin:hasBreakdownStructureType loin:Spatial ;
+          loin:hasIdentifier [
+              rdf:type loin:Identifier ;
+              loin:hasIdentifierType loin:Name ;
+              loin:value "InspectionVirtualLayer" ;
+              rdfs:label "Inspection virtual layer" ;
+            ] ;
+        ] ;
+    ] ;
+  loin:hasInformationContent uc:ConditionProperty ;
+  loin:requested "true"^^xsd:boolean ;
+  rdfs:comment "The inspection condition required by the information provider" ;
+  rdfs:label "Inspection condition" ;
+.
+uc:InspectionDoc
+  rdf:type loin:Documentation ;
+  rdfs:label "isRelatedToLinksetIdentifier" ;
+.
+uc:InspectionLayer
+  rdf:type loin:Document ;
+  loin:belongsToInformationContent uc:ConditionProperty ;
+  loin:hasDocumentSpecification uc:IFC ;
+  loin:hasDocumentSpecification uc:Object_Model_3D ;
+  loin:hasDocumentSpecification loin:Required_with_Supplement ;
+  rdfs:comment "The IFC model, provided a virtual layer for attachment of condition properties as inspection result." ;
+  rdfs:label "Inspection virtual layer" ;
+.
+uc:InspectionSection
+  rdf:type loin:Object ;
+  loin:hasGeometry loin:NotRequested ;
+  rdfs:label "The inspection section provided as inspection layer" ;
+.
+uc:Object_Model_3D
+  rdf:type loin:DocumentContent ;
+  rdfs:label "3D object model as IFC file" ;
+.
+uc:RutDepth
+  rdf:type loin:Property ;
+  loin:belongsToPset [
+      rdf:type loin:PsetName ;
+      loin:RestrictionFormulation "property of pavement condition" ;
+      loin:hasRestrictionType loin:SimpleValue ;
+    ] ;
+  loin:hasIFCDataType [
+      rdf:type loin:IFCDataType ;
+      loin:RestrictionFormulation "IfcLabel" ;
+    ] ;
+  loin:hasPropertyName [
+      rdf:type loin:PropertyName ;
+      loin:RestrictionFormulation "RutDepth_TP1b" ;
+      loin:hasRestrictionType loin:SimpleValue ;
+    ] ;
+  loin:hasRequirementType "Required" ;
+  rdfs:label "Property rut depth with abbreviation TP1b" ;
+.
+uc:XML
+  rdf:type loin:DocumentFormat ;
+  rdfs:label "XML file" ;
+.

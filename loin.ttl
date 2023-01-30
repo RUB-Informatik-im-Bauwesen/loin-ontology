@@ -1,0 +1,1059 @@
+# baseURI: http://www.inf.bi.ruhr-uni-bochum.de/loinontology
+# prefix: loin
+
+@prefix loin: <http://www.inf.bi.ruhr-uni-bochum.de/loinontology#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix Container: <https://standards.iso.org/iso/21597/-1/ed-1/en/Container#> .
+@prefix Linkset: <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.inf.bi.ruhr-uni-bochum.de/loinontology>
+  rdf:type owl:Ontology ;
+  dc:created "2023-01-30"^^xsd:date ;
+  dc:creator [
+      rdf:type foaf:Person ;
+      foaf:name "Liu Liu, Ruhr University Bochum" ;
+    ] ;
+  dc:creator [
+      rdf:type foaf:Person ;
+      foaf:name "Philipp Hagedorn, Ruhr University Bochum" ;
+    ] ;
+  dc:description "The Level of Information Need (LOIN) Ontology is defined for specifying the information requirements. The LOIN ontology is based on BS EN 17412-1 (2020). Furthermore, it is specified with IDS developed by buildingSMART International and Information container for linked document delivery (ICDD) ISO 21597-1 (2020), "@en ;
+  dc:publisher [
+      rdf:type foaf:Organization ;
+      foaf:name "Chair of Computing in Engineering, Ruhr University Bochum" ;
+    ] ;
+  dc:rights "Copyright 2023 by Chair of Computing in Engineering, Ruhr University Bochum" ;
+  dc:source "https://github.com/RUB-Informatik-im-Bauwesen/loin"^^xsd:anyURI ;
+  dc:title "Level of Information Need Ontology (LOIN)"@en ;
+  vann:preferredNamespacePrefix "loin" ;
+  owl:imports <https://standards.iso.org/iso/21597/-1/ed-1/en/Container> ;
+  owl:imports <https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset> ;
+  owl:versionInfo "0.1" ;
+.
+loin:Actor
+  rdf:type owl:Class ;
+  rdfs:comment "Actor is a contextual aspect according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Actor" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+loin:Appearance
+  rdf:type owl:Class ;
+  rdfs:comment "Appearance as a geometrical information specification for information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Appearance" ;
+  rdfs:subClassOf loin:GeometrySpecification ;
+.
+loin:Attribute
+  rdf:type owl:Class ;
+  rdfs:comment "Attribut is an IDS facet according to IDS developed by buildingSMART International" ;
+  rdfs:label "Attribut" ;
+  rdfs:subClassOf loin:IDSFacetDefinition ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasAttributeName ;
+    ] ;
+.
+loin:AttributeName
+  rdf:type owl:Class ;
+  rdfs:comment "Attribute name must be a valid attribute name from the IFC schema according to IDS developed by buildingSMART International. Example AttributeName = \"Description\"" ;
+  rdfs:label "Attribute name" ;
+  rdfs:subClassOf loin:IDSFacetParameter ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:RestrictionFormulation ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue loin:SimpleValue ;
+      owl:onProperty loin:hasRestrictionType ;
+    ] ;
+.
+loin:Bounds
+  rdf:type loin:IDSRestrictionType ;
+.
+loin:BreakdownStructure
+  rdf:type owl:Class ;
+  rdfs:comment "Breakdown structure is a term for positioning the object in a structure according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Breakdown structure" ;
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasIdentifier ;
+    ] ;
+.
+loin:BreakdownStructureType
+  rdf:type owl:Class ;
+  rdfs:comment "Breakdown structure type is a term to specify the structure according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Breakdown structure type" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+loin:Classification
+  rdf:type owl:Class ;
+  rdfs:comment "Classification is an IDS facet according to IDS developed by buildingSMART International" ;
+  rdfs:label "Classification" ;
+  rdfs:subClassOf loin:IDSFacetDefinition ;
+  owl:equivalentClass loin:Identification ;
+.
+loin:ClassificationSystem
+  rdf:type loin:BreakdownStructureType ;
+  rdfs:comment "An example of breakdown structure type according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Classification system" ;
+.
+loin:Codification
+  rdf:type loin:IdentifierType ;
+  rdfs:label "Codification of an item in a breakdown structure" ;
+.
+loin:Description
+  rdf:type owl:AnnotationProperty ;
+  rdfs:range xsd:string ;
+.
+loin:Detail
+  rdf:type owl:Class ;
+  rdfs:comment "Detail as a geometrical information specification for information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Detail" ;
+  rdfs:subClassOf loin:GeometrySpecification ;
+.
+loin:Dimensionality
+  rdf:type owl:Class ;
+  rdfs:comment "Dimensionality as a geometrical information specification for information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Dimensionality" ;
+  rdfs:subClassOf loin:GeometrySpecification ;
+.
+loin:Document
+  rdf:type owl:Class ;
+  rdfs:comment "Document is a term for specifying the documentation of information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Document" ;
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:belongsToInformationContent ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:isRelatedToContainerDocument ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:isRelatedToContainerLinkset ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty loin:hasDocumentSpecification ;
+      owl:someValuesFrom loin:DocumentContent ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty loin:hasDocumentSpecification ;
+      owl:someValuesFrom loin:DocumentFormat ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty loin:hasDocumentSpecification ;
+      owl:someValuesFrom loin:DocumentPurpose ;
+    ] ;
+.
+loin:DocumentContent
+  rdf:type owl:Class ;
+  rdfs:comment "Document specification for content for information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Document content" ;
+  rdfs:subClassOf loin:DocumentSpecification ;
+.
+loin:DocumentFormat
+  rdf:type owl:Class ;
+  rdfs:comment "Document specification for format for information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Document format" ;
+  rdfs:subClassOf loin:DocumentSpecification ;
+.
+loin:DocumentPurpose
+  rdf:type owl:Class ;
+  rdfs:comment "Document specification for purpose for information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Document purpose" ;
+  rdfs:subClassOf loin:DocumentSpecification ;
+.
+loin:DocumentSpecification
+  rdf:type owl:Class ;
+  rdfs:comment "Additional specification of document for information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Document specification" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+loin:Documentation
+  rdf:type owl:Class ;
+  rdfs:comment "Documentation is a term for specifying the information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Documentation" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+loin:EngineeringPrinciple
+  rdf:type loin:BreakdownStructureType ;
+  rdfs:comment "An example of breakdown structure type according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Engineering principle" ;
+.
+loin:Entity
+  rdf:type owl:Class ;
+  rdfs:comment "Entity is an IDS facet according to IDS developed by buildingSMART International" ;
+  rdfs:label "Entity" ;
+  rdfs:subClassOf loin:IDSFacetDefinition ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasEntityName ;
+    ] ;
+.
+loin:EntityName
+  rdf:type owl:Class ;
+  rdfs:comment "Entity name must be a valid IFC class from the IFC schema according to IDS developed by buildingSMART International. Example EntityName = \"IFCWALL\"" ;
+  rdfs:label "Entity name" ;
+  rdfs:subClassOf loin:IDSFacetParameter ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasRestrictionType ;
+    ] ;
+.
+loin:Enumeration
+  rdf:type loin:IDSRestrictionType ;
+.
+loin:FederationStrategy
+  rdf:type loin:BreakdownStructureType ;
+  rdfs:comment "An example of breakdown structure type according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Federation strategy" ;
+.
+loin:Functional
+  rdf:type loin:BreakdownStructureType ;
+  rdfs:comment "An example of breakdown structure type according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Functional structure" ;
+.
+loin:Geometry
+  rdf:type owl:Class ;
+  rdfs:comment "Geometrical information is a term for specifying the information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Geometrical information" ;
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:requested ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty loin:hasGeometrySpecification ;
+      owl:someValuesFrom loin:Appearance ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty loin:hasGeometrySpecification ;
+      owl:someValuesFrom loin:Detail ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty loin:hasGeometrySpecification ;
+      owl:someValuesFrom loin:Dimensionality ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty loin:hasGeometrySpecification ;
+      owl:someValuesFrom loin:Location ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty loin:hasGeometrySpecification ;
+      owl:someValuesFrom loin:ParametricBehaviour ;
+    ] ;
+.
+loin:GeometrySpecification
+  rdf:type owl:Class ;
+  rdfs:comment "Additional specification of geometrical information for information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Geometrical information specification" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+loin:Handdrawn_Sketches
+  rdf:type loin:DocumentContent ;
+  rdfs:comment "Documents such as such as initial sketches, site plans" ;
+.
+loin:Hard_Copy
+  rdf:type loin:DocumentContent ;
+  rdfs:comment "Documents of geometrical information or alphanumerical information can also be considered as documents." ;
+.
+loin:IDSDataDefinition
+  rdf:type owl:Class ;
+  rdfs:comment "IDS data definition is used to specify the alphanumerical information according to IDS developed by buildingSMART International" ;
+  rdfs:label "IDS data definition" ;
+  rdfs:subClassOf loin:InformationContent ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:description ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "0"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:specifiedByIdentifier ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasApplicability ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasRequirement ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:onProperty loin:hasApplicability ;
+      owl:someValuesFrom loin:Entity ;
+    ] ;
+.
+loin:IDSFacetDefinition
+  rdf:type owl:Class ;
+  rdf:type sh:NodeShape ;
+  rdfs:comment "IDS facet definition is used to define a facet to apply the requirement or to require the information according to IDS developed by buildingSMART International" ;
+  rdfs:label "IDS facet Definition" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+loin:IDSFacetParameter
+  rdf:type owl:Class ;
+  rdfs:comment "IDS facet parameter is used to specify a facet definition according to IDS developed by buildingSMART International" ;
+  rdfs:label "IDS facet parameter" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+loin:IDSRequirementType
+  rdf:type owl:Class ;
+  rdfs:comment "IDS requirement type is used to specify a requirement, if it is optional or mandatory according to IDS developed by buildingSMART International" ;
+  rdfs:label "IDS requirement type" ;
+  rdfs:subClassOf rdfs:Resource ;
+  owl:oneOf (
+      "Required"
+      "Optional"
+      "Prohibited"
+    ) ;
+.
+loin:IDSRestrictionType
+  rdf:type owl:Class ;
+  rdfs:comment "Restriction type is used to define the value of IDS facet parameter according to IDS developed by buildingSMART International" ;
+  rdfs:label "Restriction type" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+loin:IFCDataType
+  rdf:type owl:Class ;
+  rdfs:comment "IFC data type must be a valid predefined type from the IFC schema according to IDS developed by buildingSMART International" ;
+  rdfs:label "IFC data type" ;
+  rdfs:subClassOf loin:IDSFacetParameter ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:RestrictionFormulation ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue loin:SimpleValue ;
+      owl:onProperty loin:hasRestrictionType ;
+    ] ;
+.
+loin:Identification
+  rdf:type owl:Class ;
+  rdfs:comment "Identification is a term for positioning the object in a breakdown structure according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Identification" ;
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasBreakdownStructure ;
+    ] ;
+.
+loin:Identifier
+  rdf:type owl:Class ;
+  rdfs:comment "Identifier is used to assiging a vaule for positioning the object in a breakdown structure according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Identifier" ;
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasBreakdownStructure ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasIdentifierType ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:value ;
+    ] ;
+.
+loin:IdentifierType
+  rdf:type owl:Class ;
+  rdfs:comment "Identifier type is used to specify the identifier in a breakdown structure according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Identifier type" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+loin:Index
+  rdf:type loin:IdentifierType ;
+  rdfs:label "Index of an item in a breakdown structure" ;
+.
+loin:Information
+  rdf:type owl:Class ;
+  rdfs:comment "Alphanumerical information is a term for specifying the information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Alphanumerical information" ;
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:requested ;
+    ] ;
+.
+loin:InformationContent
+  rdf:type owl:Class ;
+  rdfs:comment "Alphanumerical information content is a term for specifying the alphanumerical information according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Alphanumerical information content" ;
+  rdfs:subClassOf rdfs:Resource ;
+.
+loin:InformationDeliveryMilestone
+  rdf:type owl:Class ;
+  rdfs:comment "Information delivery milestone is a contextual aspect according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Information delivery milestone" ;
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasProvider ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasPurpose ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasReceiver ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasObject ;
+    ] ;
+.
+loin:InformationProvider
+  rdf:type owl:Class ;
+  rdfs:comment "Information provider is a party for information delivery according to ISO 19650-1 (2018)" ;
+  rdfs:label "Information provider" ;
+  rdfs:subClassOf loin:Actor ;
+.
+loin:InformationReceiver
+  rdf:type owl:Class ;
+  rdfs:comment "Information receiver is a party for information delivery according to ISO 19650-1 (2018)" ;
+  rdfs:label "Information receiver" ;
+  rdfs:subClassOf loin:Actor ;
+.
+loin:Length
+  rdf:type loin:IDSRestrictionType ;
+.
+loin:Location
+  rdf:type owl:Class ;
+  rdfs:comment "Location as a geometrical information specification for information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Location" ;
+  rdfs:subClassOf loin:GeometrySpecification ;
+.
+loin:Manual
+  rdf:type loin:DocumentContent ;
+  rdfs:comment "Documents such as maintenance and user manuals" ;
+.
+loin:Material
+  rdf:type owl:Class ;
+  rdfs:comment "Material is an IDS facet according to IDS developed by buildingSMART International" ;
+  rdfs:label "Material" ;
+  rdfs:subClassOf loin:IDSFacetDefinition ;
+.
+loin:Name
+  rdf:type loin:IdentifierType ;
+  rdfs:label "Name of an item in a breakdown structure" ;
+.
+loin:NotRequested
+  rdf:type loin:Geometry ;
+  loin:requested "false"^^xsd:boolean ;
+.
+loin:Numbering
+  rdf:type loin:IdentifierType ;
+  rdfs:label "Numbering of an item in a breakdown structure" ;
+.
+loin:Object
+  rdf:type owl:Class ;
+  rdfs:comment "Object is a contextual aspect according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Object" ;
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasDocumentation ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasGeometry ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasInformation ;
+    ] ;
+.
+loin:OntologyDataDefinition
+  rdf:type owl:Class ;
+  rdfs:comment "Ontology data definition is used to specify the alphanumerical information according to a published or customized ontology" ;
+  rdfs:label "Ontology data definition" ;
+  rdfs:subClassOf loin:InformationContent ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:specifiedByIdentifier ;
+    ] ;
+.
+loin:ParametricBehaviour
+  rdf:type owl:Class ;
+  rdfs:comment "Parametric behaviour as a geometrical information specification for information need according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Parametric behaviour" ;
+  rdfs:subClassOf loin:GeometrySpecification ;
+.
+loin:Pattern
+  rdf:type loin:IDSRestrictionType ;
+.
+loin:Photograph
+  rdf:type loin:DocumentContent ;
+  rdfs:comment "Documents such as records of work done, records of existing conditions" ;
+.
+loin:PredefinedType
+  rdf:type owl:Class ;
+  rdfs:comment "Predefined type must be a valid predefined type from the IFC schema, or any custom text value according to IDS developed by buildingSMART International" ;
+  rdfs:label "Predefined type" ;
+  rdfs:subClassOf loin:IDSFacetParameter ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasRestrictionType ;
+    ] ;
+.
+loin:Property
+  rdf:type owl:Class ;
+  rdfs:comment "Property is an IDS facet according to IDS developed by buildingSMART International" ;
+  rdfs:label "Property" ;
+  rdfs:subClassOf loin:IDSFacetDefinition ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:belongsToPset ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasIFCDataType ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasPropertyName ;
+    ] ;
+.
+loin:PropertyName
+  rdf:type owl:Class ;
+  rdfs:comment "Property name must be a valid name from the IFC schema, or any custom text value according to IDS developed by buildingSMART International" ;
+  rdfs:label "Property name" ;
+  rdfs:subClassOf loin:IDSFacetParameter ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:RestrictionFormulation ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:hasValue loin:SimpleValue ;
+      owl:onProperty loin:hasRestrictionType ;
+    ] ;
+.
+loin:Provided_As_Information
+  rdf:type loin:DocumentPurpose ;
+  rdfs:label "The document delivered by Inquirer as percondition or information" ;
+.
+loin:PsetName
+  rdf:type owl:Class ;
+  rdfs:comment "Property set name must be a valid name from the IFC schema, or any custom text value according to IDS developed by buildingSMART International" ;
+  rdfs:label "Property set name" ;
+  rdfs:subClassOf loin:IDSFacetParameter ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:RestrictionFormulation ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasRestrictionType ;
+    ] ;
+.
+loin:Purpose
+  rdf:type owl:Class ;
+  rdfs:comment "Purpose is a contextual aspect according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Purpose" ;
+  rdfs:subClassOf rdfs:Resource ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:description ;
+    ] ;
+.
+loin:ReferenceOfStructure
+  rdf:type loin:IdentifierType ;
+  rdfs:label "Reference of an item in a breakdown structure" ;
+.
+loin:Report
+  rdf:type loin:DocumentContent ;
+.
+loin:Required_For_Approval
+  rdf:type loin:DocumentPurpose ;
+  rdfs:label "The document required by deliverer for getting approval" ;
+.
+loin:Required_with_Supplement
+  rdf:type loin:DocumentPurpose ;
+  rdfs:label "The Document required by deliverer with supplement of information" ;
+.
+loin:RestrictionFormulation
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain loin:IDSFacetParameter ;
+  rdfs:range xsd:string ;
+.
+loin:Semantic
+  rdf:type loin:BreakdownStructureType ;
+  rdfs:comment "An example of breakdown structure type according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Semantic structure" ;
+.
+loin:Signed_Document
+  rdf:type loin:DocumentContent ;
+  rdfs:comment "Documents such as such as test certificates, insurance policies, delivery notes" ;
+.
+loin:SimpleValue
+  rdf:type loin:IDSRestrictionType ;
+.
+loin:Spatial
+  rdf:type loin:BreakdownStructureType ;
+  rdfs:comment "An example of breakdown structure type according to BS EN 17412-1 (2020)" ;
+  rdfs:label "Spatial structure" ;
+.
+loin:Specification
+  rdf:type loin:DocumentContent ;
+.
+loin:TypeName
+  rdf:type loin:IdentifierType ;
+  rdfs:label "Type name of an item in a breakdown structure" ;
+.
+loin:Used_As_Template
+  rdf:type loin:DocumentPurpose ;
+  rdfs:label "The document delivered by inquirer for using as template" ;
+.
+loin:Value
+  rdf:type owl:Class ;
+  rdfs:comment "Value can be any custom value according to IDS developed by buildingSMART International" ;
+  rdfs:label "Value" ;
+  rdfs:subClassOf loin:IDSFacetParameter ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:RestrictionFormulation ;
+    ] ;
+  rdfs:subClassOf [
+      rdf:type owl:Restriction ;
+      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:onProperty loin:hasRestrictionType ;
+    ] ;
+.
+loin:absolute
+  rdf:type loin:Location ;
+.
+loin:belongsToInformationContent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Document ;
+  rdfs:label "belongs to information content" ;
+  rdfs:range loin:InformationContent ;
+.
+loin:belongsToPset
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Property ;
+  rdfs:label "belongs to Pset" ;
+  rdfs:range loin:PsetName ;
+.
+loin:constructive
+  rdf:type loin:ParametricBehaviour ;
+.
+loin:coordination
+  rdf:type loin:Purpose ;
+  loin:description "coordination - example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:comment "Example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:label "Coordination" ;
+.
+loin:costEstimation
+  rdf:type loin:Purpose ;
+  loin:description "Cost estimation - example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:comment "Example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:label "Cost estimation" ;
+.
+loin:description
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          loin:InformationContent
+          loin:Purpose
+        ) ;
+    ] ;
+.
+loin:detailed
+  rdf:type loin:Detail ;
+.
+loin:detailedDesign
+  rdf:type loin:InformationDeliveryMilestone ;
+  rdfs:comment "Example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:label "Detailed design" ;
+.
+loin:explicit
+  rdf:type loin:ParametricBehaviour ;
+.
+loin:finalDesign
+  rdf:type loin:InformationDeliveryMilestone ;
+  rdfs:comment "Example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:label "Final design" ;
+.
+loin:fireSmokeSimulation
+  rdf:type loin:Purpose ;
+  loin:description "Fire and smoke simulation - example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:comment "Example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:label "Fire and smoke simulation" ;
+.
+loin:hasAgent
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "Information of the information delivery actor defined by foaf ontology mit class foaf:Agent" ;
+  rdfs:domain loin:Actor ;
+  rdfs:label "has agent" ;
+.
+loin:hasAppearance
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has appearance" ;
+  rdfs:range loin:Appearance ;
+.
+loin:hasApplicability
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment "The object property describes the applicability of a facet for the specification" ;
+  rdfs:domain loin:IDSDataDefinition ;
+  rdfs:label "has applicability" ;
+  rdfs:range loin:IDSFacetDefinition ;
+.
+loin:hasAttributeName
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Attribute ;
+  rdfs:label "has attribute name" ;
+  rdfs:range loin:AttributeName ;
+.
+loin:hasBreakdownStructure
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Identification ;
+  rdfs:label "has breakdown structure" ;
+  rdfs:range loin:BreakdownStructure ;
+.
+loin:hasBreakdownStructureType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:BreakdownStructure ;
+  rdfs:label "has breakdown structure type" ;
+  rdfs:range loin:BreakdownStructureType ;
+.
+loin:hasDetail
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has detail" ;
+  rdfs:range loin:Detail ;
+.
+loin:hasDimensionality
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has dimensionality" ;
+  rdfs:range loin:Dimensionality ;
+.
+loin:hasDocument
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Documentation ;
+  rdfs:label "has document" ;
+.
+loin:hasDocumentSpecification
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Document ;
+  rdfs:label "has documentaton specification" ;
+  rdfs:range loin:DocumentSpecification ;
+.
+loin:hasDocumentation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Object ;
+  rdfs:label "has documentation" ;
+  rdfs:range loin:Documentation ;
+.
+loin:hasEntityName
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Entity ;
+  rdfs:label "has entity name" ;
+  rdfs:range loin:EntityName ;
+.
+loin:hasGeometry
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Object ;
+  rdfs:label "has geometrical information" ;
+  rdfs:range loin:Geometry ;
+.
+loin:hasGeometrySpecification
+  rdf:type owl:ObjectProperty ;
+  rdfs:comment """[\"Appearance\",
+\"Detail\",
+\"Dimensionality\",
+\"Location\",
+\"ParametricBehaviour\"]""" ;
+  rdfs:domain loin:Geometry ;
+  rdfs:label "has geometrical information specification" ;
+  rdfs:range loin:GeometrySpecification ;
+.
+loin:hasIFCDataType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Property ;
+  rdfs:label "has IFC data type" ;
+  rdfs:range loin:IFCDataType ;
+.
+loin:hasIdentification
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Information ;
+  rdfs:label "has identification" ;
+  rdfs:label "hasTypeOfBreakdownStructure" ;
+  rdfs:range loin:Identification ;
+.
+loin:hasIdentifier
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:BreakdownStructure ;
+  rdfs:label "has identifier" ;
+  rdfs:range loin:Identifier ;
+.
+loin:hasIdentifierType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Identifier ;
+  rdfs:label "has identifier type" ;
+  rdfs:range loin:IdentifierType ;
+.
+loin:hasInformation
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Object ;
+  rdfs:label "has alphanumerical information" ;
+  rdfs:range loin:Information ;
+.
+loin:hasInformationContent
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Information ;
+  rdfs:label "has alphanumerical informaton content" ;
+  rdfs:range loin:InformationContent ;
+.
+loin:hasLocation
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has location" ;
+  rdfs:range loin:Location ;
+.
+loin:hasObject
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:InformationDeliveryMilestone ;
+  rdfs:label "has object" ;
+  rdfs:range loin:Object ;
+.
+loin:hasParameterValue
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has parameter value" ;
+.
+loin:hasParametricBehaviour
+  rdf:type owl:ObjectProperty ;
+  rdfs:label "has parametric behaviour" ;
+  rdfs:range loin:ParametricBehaviour ;
+.
+loin:hasPredefinedType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Entity ;
+  rdfs:label "has predefined type" ;
+  rdfs:range loin:PredefinedType ;
+.
+loin:hasPropertyName
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Property ;
+  rdfs:label "has property name" ;
+  rdfs:range loin:PropertyName ;
+.
+loin:hasProvider
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:InformationDeliveryMilestone ;
+  rdfs:label "has provider" ;
+  rdfs:range loin:InformationProvider ;
+.
+loin:hasPurpose
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:InformationDeliveryMilestone ;
+  rdfs:label "has purpose" ;
+  rdfs:range loin:Purpose ;
+.
+loin:hasReceiver
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:InformationDeliveryMilestone ;
+  rdfs:label "has information receiver" ;
+  rdfs:range loin:InformationReceiver ;
+.
+loin:hasReferenceSource
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain [
+      rdf:type owl:Class ;
+      owl:unionOf (
+          loin:BreakdownStructure
+          loin:OntologyDataDefinition
+        ) ;
+    ] ;
+  rdfs:label "has reference source" ;
+  rdfs:range xsd:anyURI ;
+  rdfs:range owl:Thing ;
+.
+loin:hasRequirement
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:IDSDataDefinition ;
+  rdfs:label "has requirement" ;
+  rdfs:range loin:IDSFacetDefinition ;
+.
+loin:hasRequirementType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:IDSFacetDefinition ;
+  rdfs:label "has requirement type" ;
+  rdfs:range loin:IDSRequirementType ;
+.
+loin:hasRestrictionType
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:IDSFacetParameter ;
+  rdfs:label "has restriction type" ;
+  rdfs:range loin:IDSRestrictionType ;
+.
+loin:hasValue
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Attribute ;
+  rdfs:domain loin:Material ;
+  rdfs:domain loin:Property ;
+  rdfs:label "has value" ;
+  rdfs:range loin:Value ;
+.
+loin:isRelatedToContainerDescription
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:InformationDeliveryMilestone ;
+  rdfs:domain loin:Purpose ;
+  rdfs:label "is related to container description" ;
+  rdfs:label "isRelatedToContainerDescription" ;
+  rdfs:range Container:ContainerDescription ;
+.
+loin:isRelatedToContainerDocument
+  rdf:type owl:ObjectProperty ;
+  rdf:type owl:SymmetricProperty ;
+  rdfs:domain loin:Document ;
+  rdfs:label "is related to container document" ;
+  rdfs:range Container:Document ;
+.
+loin:isRelatedToContainerLinkset
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:Document ;
+  rdfs:label "is related to container linkset" ;
+  rdfs:range Container:Linkset ;
+.
+loin:isRelatedToContainerParty
+  rdf:type rdf:Property ;
+  rdfs:domain loin:Actor ;
+  rdfs:label "is related to container party" ;
+  rdfs:range Container:Party ;
+.
+loin:isRelatedToLinksetIdentifier
+  rdf:type rdf:Property ;
+  rdfs:domain loin:IdentifierType ;
+  rdfs:label "is related to linkset identifier" ;
+  rdfs:range Linkset:Identifier ;
+.
+loin:isRelatedToLoinDocument
+  rdf:type owl:ObjectProperty ;
+  rdfs:domain loin:InformationContent ;
+  rdfs:label "is related to Loin document" ;
+  rdfs:range loin:Document ;
+.
+loin:name
+  rdf:type owl:AnnotationProperty ;
+  rdfs:range xsd:string ;
+.
+loin:one-dimensional
+  rdf:type loin:Dimensionality ;
+.
+loin:parametric
+  rdf:type loin:ParametricBehaviour ;
+.
+loin:preliminaryDesign
+  rdf:type loin:InformationDeliveryMilestone ;
+  rdfs:comment "Example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:label "Preliminary design" ;
+.
+loin:real-world
+  rdf:type loin:Appearance ;
+.
+loin:realistic
+  rdf:type loin:Appearance ;
+.
+loin:relative
+  rdf:type loin:Location ;
+.
+loin:requested
+  rdf:type owl:DatatypeProperty ;
+  rdfs:domain loin:Geometry ;
+  rdfs:domain loin:GeometrySpecification ;
+  rdfs:domain loin:Information ;
+  rdfs:range xsd:boolean ;
+.
+loin:simplified
+  rdf:type loin:Detail ;
+.
+loin:specifiedByIdentifier
+  rdf:type rdf:Property ;
+  rdfs:domain loin:InformationContent ;
+  rdfs:label "specified by identifier" ;
+  rdfs:range loin:Identifier ;
+.
+loin:structuralAnalysis
+  rdf:type loin:Purpose ;
+  loin:description "Structural analysis - example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:comment "Example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:label "Structural analysis" ;
+.
+loin:symbolic
+  rdf:type loin:Appearance ;
+.
+loin:three-dimensional
+  rdf:type loin:Dimensionality ;
+.
+loin:two-dimensional
+  rdf:type loin:Dimensionality ;
+.
+loin:value
+  rdf:type owl:DatatypeProperty ;
+.
+loin:visualization
+  rdf:type loin:Purpose ;
+  loin:description "Visualization - example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:comment "Example from ISO 17412-1:2022 - Annex B" ;
+  rdfs:label "Visualization" ;
+.
+loin:zero-dimensional
+  rdf:type loin:Dimensionality ;
+.
