@@ -215,7 +215,7 @@
 
     <script type="application/ld+json">
         [{
-            "@id": "http://www.inf.bi.rub.de/loin/ns",
+            "@id": "https://w3id.org/loin",
             "@type": [
                 "https://schema.org/DefinedTermSet"
             ],
@@ -246,7 +246,7 @@
         <h2 style="display:none;">Metadata</h2>
         <dl>
             <dt>IRI</dt>
-            <dd><code>http://www.inf.bi.rub.de/loin/ns</code></dd>
+            <dd><code>https://w3id.org/loin</code></dd>
             <dt>Publisher(s)</dt>
             <dd>
 
@@ -304,12 +304,7 @@
             <dt>Created</dt>
             <dd>2023-01-30</dd>
             <dt>Version Information</dt>
-            <dd>0.1</dd>
-            <dt>Imports</dt>
-            <dd>
-                <a href="https://standards.iso.org/iso/21597/-1/ed-1/en/Container">https://standards.iso.org/iso/21597/-1/ed-1/en/Container</a><br/>
-                <a href="https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset">https://standards.iso.org/iso/21597/-1/ed-1/en/Linkset</a><br/>
-            </dd>
+            <dd>0.2</dd>
             <dt>License &amp; Rights</dt>
             <dd>
                 <a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a><br /> &copy; 2023 by Chair of Computing in Engineering, Ruhr University Bochum
@@ -318,6 +313,9 @@
             <dd><a href="https://github.com/RUB-Informatik-im-Bauwesen/loin-ontology">https://github.com/RUB-Informatik-im-Bauwesen/loin-ontology</a></dd>
             <dt>Ontology RDF</dt>
             <dd><a href="loin.ttl">RDF (turtle)</a></dd>
+            <dd><a href="loin.rdf">RDF (RDF)</a></dd>
+            <dd><a href="loin.nt">RDF (N-triples)</a></dd>
+            <dd><a href="loin.jsonld">RDF (JSON-LD)</a></dd>
         </dl>
         <h2>Description</h2>
         <div id="description">
@@ -331,11 +329,17 @@
             <li><a href="#classes">Classes</a></li>
             <li><a href="#objectproperties">Object Properties</a></li>
             <li><a href="#datatypeproperties">Datatype Properties</a></li>
-            <li><a href="#annotationproperties">Annotation Properties</a></li>
             <li><a href="#properties">Properties</a></li>
             <li><a href="#namespaces">Namespaces</a></li>
             <li><a href="#legend">Legend</a></li>
         </ol>
+    </section>
+    <section id="overview">
+        <h2>Overview</h2>
+        <div class="figure">
+            <img style="width:500px; " src="loin.png">
+            <div class="caption"><strong>Figure 1:</strong> Ontology overview</div>
+        </div>
     </section>
     <section id="classes">
         <h2>Classes <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
@@ -344,11 +348,11 @@
             <li><a href="#Alphanumericalinformation">Alphanumerical information</a></li>
             <li><a href="#Alphanumericalinformationcontent">Alphanumerical information content</a></li>
             <li><a href="#Appearance">Appearance</a></li>
-            <li><a href="#Attribut">Attribut</a></li>
+            <li><a href="#AttributofIDS">Attribut of IDS</a></li>
             <li><a href="#Attributename">Attribute name</a></li>
             <li><a href="#Breakdownstructure">Breakdown structure</a></li>
             <li><a href="#Breakdownstructuretype">Breakdown structure type</a></li>
-            <li><a href="#Classification">Classification</a></li>
+            <li><a href="#ClassificationofIDS">Classification of IDS</a></li>
             <li><a href="#Detail">Detail</a></li>
             <li><a href="#Dimensionality">Dimensionality</a></li>
             <li><a href="#Document">Document</a></li>
@@ -362,7 +366,7 @@
             <li><a href="#Geometricalinformation">Geometrical information</a></li>
             <li><a href="#Geometricalinformationspecification">Geometrical information specification</a></li>
             <li><a href="#IDSdatadefinition">IDS data definition</a></li>
-            <li><a href="#IDSfacetDefinition">IDS facet Definition</a></li>
+            <li><a href="#IDSfacetdefinition">IDS facet definition</a></li>
             <li><a href="#IDSfacetparameter">IDS facet parameter</a></li>
             <li><a href="#IDSrequirementtype">IDS requirement type</a></li>
             <li><a href="#IFCdatatype">IFC data type</a></li>
@@ -390,7 +394,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Actor</code></td>
+                    <td><code>https://w3id.org/loin#Actor</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -407,8 +411,8 @@
                 <tr>
                     <th>Sub-classes</th>
                     <td>
-                        <a href="#Informationprovider">loin:InformationProvider</a><sup class="sup-c" title="class">c</sup><br/>
                         <a href="#Informationreceiver">loin:InformationReceiver</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#Informationprovider">loin:InformationProvider</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
                 <tr>
@@ -425,7 +429,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Appearance</code></td>
+                    <td><code>https://w3id.org/loin#Appearance</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -439,31 +443,25 @@
                         <a href="#Geometricalinformationspecification">loin:GeometrySpecification</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
-                <tr>
-                    <th>In range of</th>
-                    <td>
-                        <a href="#hasappearance">loin:hasAppearance</a><sup class="sup-op" title="object property">op</sup><br/>
-                    </td>
-                </tr>
             </table>
         </div>
-        <div class="entity class" id="Attribut">
-            <h3>Attribut<sup title="class" class="sup-c">c</sup></h3>
+        <div class="entity class" id="AttributofIDS">
+            <h3>Attribut of IDS<sup title="class" class="sup-c">c</sup></h3>
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Attribute</code></td>
+                    <td><code>https://w3id.org/loin#Attribute</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Attribut is an IDS facet according to IDS developed by buildingSMART International</p>
+                        <p>Attribut is a facet of Information Delivery Specification (IDS), a standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
                     <th>Super-classes</th>
                     <td>
-                        <a href="#IDSfacetDefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#IDSfacetdefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
                 <tr>
@@ -486,12 +484,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#AttributeName</code></td>
+                    <td><code>https://w3id.org/loin#AttributeName</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Attribute name must be a valid attribute name from the IFC schema according to IDS developed by buildingSMART International. Example AttributeName = "Description"</p>
+                        <p>Attribute name must be a valid attribute name from the IFC schema according to the definition of IDS developed by buildingSMART International. Example AttributeName = "Description"</p>
                     </td>
                 </tr>
                 <tr>
@@ -503,10 +501,8 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
-                        <a href="#RestrictionFormulation">loin:RestrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
-                        <a href="#hasrestrictiontype">loin:hasRestrictionType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">value</span> <a href="http://www.inf.bi.rub.de/loin/ns#SimpleValue">loin:SimpleValue</a>
-                        <sup
-                            class="sup-c" title="class">c</sup><br/>
+                        <a href="#hasrestrictiontype">loin:hasRestrictionType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#Constrainttextformulatedforfacetparameters">loin:restrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
@@ -522,7 +518,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#BreakdownStructure</code></td>
+                    <td><code>https://w3id.org/loin#BreakdownStructure</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -545,8 +541,8 @@
                 <tr>
                     <th>In domain of</th>
                     <td>
-                        <a href="#hasidentifier">loin:hasIdentifier</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#hasbreakdownstructuretype">loin:hasBreakdownStructureType</a><sup class="sup-op" title="object property">op</sup><br/>
+                        <a href="#hasidentifier">loin:hasIdentifier</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
                 <tr>
@@ -562,7 +558,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#BreakdownStructureType</code></td>
+                    <td><code>https://w3id.org/loin#BreakdownStructureType</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -584,23 +580,23 @@
                 </tr>
             </table>
         </div>
-        <div class="entity class" id="Classification">
-            <h3>Classification<sup title="class" class="sup-c">c</sup></h3>
+        <div class="entity class" id="ClassificationofIDS">
+            <h3>Classification of IDS<sup title="class" class="sup-c">c</sup></h3>
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Classification</code></td>
+                    <td><code>https://w3id.org/loin#Classification</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Classification is an IDS facet according to IDS developed by buildingSMART International</p>
+                        <p>Classification is is a facet of Information Delivery Specification (IDS), a standard developed by buildingSMART International. In this ontology, it is defined as an equivalent class of Indentification according to BS EN 17412-1</p>
                     </td>
                 </tr>
                 <tr>
                     <th>Super-classes</th>
                     <td>
-                        <a href="#IDSfacetDefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#IDSfacetdefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
             </table>
@@ -610,7 +606,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Detail</code></td>
+                    <td><code>https://w3id.org/loin#Detail</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -624,12 +620,6 @@
                         <a href="#Geometricalinformationspecification">loin:GeometrySpecification</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
-                <tr>
-                    <th>In range of</th>
-                    <td>
-                        <a href="#hasdetail">loin:hasDetail</a><sup class="sup-op" title="object property">op</sup><br/>
-                    </td>
-                </tr>
             </table>
         </div>
         <div class="entity class" id="Dimensionality">
@@ -637,7 +627,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Dimensionality</code></td>
+                    <td><code>https://w3id.org/loin#Dimensionality</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -651,12 +641,6 @@
                         <a href="#Geometricalinformationspecification">loin:GeometrySpecification</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
-                <tr>
-                    <th>In range of</th>
-                    <td>
-                        <a href="#hasdimensionality">loin:hasDimensionality</a><sup class="sup-op" title="object property">op</sup><br/>
-                    </td>
-                </tr>
             </table>
         </div>
         <div class="entity class" id="Document">
@@ -664,7 +648,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Document</code></td>
+                    <td><code>https://w3id.org/loin#Document</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -683,22 +667,22 @@
                     <td>
                         <a href="#hasdocumentatonspecification">loin:hasDocumentSpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Documentformat">loin:DocumentFormat</a><sup class="sup-c"
                             title="class">c</sup><br/>
-                        <a href="#isrelatedtocontainerdocument">loin:isRelatedToContainerDocument</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
                         <a href="#hasdocumentatonspecification">loin:hasDocumentSpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Documentcontent">loin:DocumentContent</a><sup class="sup-c"
                             title="class">c</sup><br/>
-                        <a href="#isrelatedtocontainerlinkset">loin:isRelatedToContainerLinkset</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
                         <a href="#hasdocumentatonspecification">loin:hasDocumentSpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Documentpurpose">loin:DocumentPurpose</a><sup class="sup-c"
                             title="class">c</sup><br/>
+                        <a href="#isrelatedtocontainerdocument">loin:isRelatedToContainerDocument</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
                         <a href="#belongstoinformationcontent">loin:belongsToInformationContent</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
+                        <a href="#isrelatedtocontainerlinkset">loin:isRelatedToContainerLinkset</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
                     <th>In domain of</th>
                     <td>
                         <a href="#isrelatedtocontainerlinkset">loin:isRelatedToContainerLinkset</a><sup class="sup-op" title="object property">op</sup><br/>
-                        <a href="#belongstoinformationcontent">loin:belongsToInformationContent</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#isrelatedtocontainerdocument">loin:isRelatedToContainerDocument</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#hasdocumentatonspecification">loin:hasDocumentSpecification</a><sup class="sup-op" title="object property">op</sup><br/>
+                        <a href="#belongstoinformationcontent">loin:belongsToInformationContent</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
                 <tr>
@@ -714,7 +698,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#DocumentContent</code></td>
+                    <td><code>https://w3id.org/loin#DocumentContent</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -735,7 +719,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#DocumentFormat</code></td>
+                    <td><code>https://w3id.org/loin#DocumentFormat</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -756,12 +740,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#DocumentPurpose</code></td>
+                    <td><code>https://w3id.org/loin#DocumentPurpose</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Document specification for purpose for information need according to BS EN 17412-1 (2020)</p>
+                        <p>Document purpose is a extension according to BS EN 17412-1 (2020) 6.4 Document - Example 1. It specifies the use of document</p>
                     </td>
                 </tr>
                 <tr>
@@ -777,7 +761,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#DocumentSpecification</code></td>
+                    <td><code>https://w3id.org/loin#DocumentSpecification</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -812,7 +796,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Documentation</code></td>
+                    <td><code>https://w3id.org/loin#Documentation</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -845,18 +829,18 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Entity</code></td>
+                    <td><code>https://w3id.org/loin#Entity</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Entity is an IDS facet according to IDS developed by buildingSMART International</p>
+                        <p>Entity is a facet of Information Delivery Specification (IDS), a standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
                     <th>Super-classes</th>
                     <td>
-                        <a href="#IDSfacetDefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#IDSfacetdefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
                 <tr>
@@ -868,8 +852,8 @@
                 <tr>
                     <th>In domain of</th>
                     <td>
-                        <a href="#hasentityname">loin:hasEntityName</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#haspredefinedtype">loin:hasPredefinedType</a><sup class="sup-op" title="object property">op</sup><br/>
+                        <a href="#hasentityname">loin:hasEntityName</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
             </table>
@@ -879,7 +863,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#EntityName</code></td>
+                    <td><code>https://w3id.org/loin#EntityName</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -897,6 +881,7 @@
                     <th>Restrictions</th>
                     <td>
                         <a href="#hasrestrictiontype">loin:hasRestrictionType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#Constrainttextformulatedforfacetparameters">loin:restrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
@@ -912,7 +897,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Geometry</code></td>
+                    <td><code>https://w3id.org/loin#Geometry</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -929,26 +914,23 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
+                        <a href="#hasgeometricalinformationspecification">loin:hasGeometrySpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Location">loin:Location</a><sup class="sup-c"
+                            title="class">c</sup><br/>
+                        <a href="#hasgeometricalinformationspecification">loin:hasGeometrySpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Parametricbehaviour">loin:ParametricBehaviour</a>
+                        <sup class="sup-c" title="class">c</sup><br/>
                         <a href="#hasgeometricalinformationspecification">loin:hasGeometrySpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Dimensionality">loin:Dimensionality</a>
-                        <sup
-                            class="sup-c" title="class">c</sup><br/>
-                            <a href="#hasgeometricalinformationspecification">loin:hasGeometrySpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Appearance">loin:Appearance</a><sup class="sup-c"
-                                title="class">c</sup><br/>
-                            <a href="#requested">loin:requested</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
-                            <a href="#hasgeometricalinformationspecification">loin:hasGeometrySpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Location">loin:Location</a><sup class="sup-c"
-                                title="class">c</sup><br/>
-                            <a href="#hasgeometricalinformationspecification">loin:hasGeometrySpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Detail">loin:Detail</a><sup class="sup-c"
-                                title="class">c</sup><br/>
-                            <a href="#hasgeometricalinformationspecification">loin:hasGeometrySpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Parametricbehaviour">loin:ParametricBehaviour</a>
-                            <sup
-                                class="sup-c" title="class">c</sup><br/>
+                        <sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#hasgeometricalinformationspecification">loin:hasGeometrySpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Appearance">loin:Appearance</a>
+                        <sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#hasgeometricalinformationspecification">loin:hasGeometrySpecification</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Detail">loin:Detail</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#requestedasboolean,specifysifGeometricalinformationisneededaccordingtoBSEN17412-1(2020)">loin:requested</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
                     <th>In domain of</th>
                     <td>
                         <a href="#hasgeometricalinformationspecification">loin:hasGeometrySpecification</a><sup class="sup-op" title="object property">op</sup><br/>
-                        <a href="#requested">loin:requested</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                        <a href="#requestedasboolean,specifysifGeometricalinformationisneededaccordingtoBSEN17412-1(2020)">loin:requested</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
                     </td>
                 </tr>
                 <tr>
@@ -964,7 +946,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#GeometrySpecification</code></td>
+                    <td><code>https://w3id.org/loin#GeometrySpecification</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -981,17 +963,17 @@
                 <tr>
                     <th>Sub-classes</th>
                     <td>
-                        <a href="#Dimensionality">loin:Dimensionality</a><sup class="sup-c" title="class">c</sup><br/>
-                        <a href="#Location">loin:Location</a><sup class="sup-c" title="class">c</sup><br/>
                         <a href="#Parametricbehaviour">loin:ParametricBehaviour</a><sup class="sup-c" title="class">c</sup><br/>
-                        <a href="#Appearance">loin:Appearance</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#Dimensionality">loin:Dimensionality</a><sup class="sup-c" title="class">c</sup><br/>
                         <a href="#Detail">loin:Detail</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#Appearance">loin:Appearance</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#Location">loin:Location</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
                 <tr>
                     <th>In domain of</th>
                     <td>
-                        <a href="#requested">loin:requested</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                        <a href="#requestedasboolean,specifysifGeometricalinformationisneededaccordingtoBSEN17412-1(2020)">loin:requested</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
                     </td>
                 </tr>
                 <tr>
@@ -1007,12 +989,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#IDSDataDefinition</code></td>
+                    <td><code>https://w3id.org/loin#IDSDataDefinition</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>IDS data definition is used to specify the alphanumerical information according to IDS developed by buildingSMART International</p>
+                        <p>IDS data definition is used to specify the alphanumerical information according to Information Delivery Specification (IDS) developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
@@ -1024,33 +1006,32 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
-                        <a href="#hasapplicability">loin:hasApplicability</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1<br/>
-                        <a href="#description">loin:description</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
-                        <a href="#hasrequirement">loin:hasRequirement</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1<br/>
-                        <a href="#specifiedbyidentifier">loin:specifiedByIdentifier</a> <span class="cardinality">max</span> 0<br/>
                         <a href="#hasapplicability">loin:hasApplicability</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">some</span> <a href="#Entity">loin:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#hasrequirement">loin:hasRequirement</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1<br/>
+                        <a href="#description">loin:description</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#hasapplicability">loin:hasApplicability</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
                     <th>In domain of</th>
                     <td>
-                        <a href="#hasrequirement">loin:hasRequirement</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#hasapplicability">loin:hasApplicability</a><sup class="sup-op" title="object property">op</sup><br/>
+                        <a href="#hasrequirement">loin:hasRequirement</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
             </table>
         </div>
-        <div class="entity class" id="IDSfacetDefinition">
-            <h3>IDS facet Definition<sup title="class" class="sup-c">c</sup></h3>
+        <div class="entity class" id="IDSfacetdefinition">
+            <h3>IDS facet definition<sup title="class" class="sup-c">c</sup></h3>
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#IDSFacetDefinition</code></td>
+                    <td><code>https://w3id.org/loin#IDSFacetDefinition</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>IDS facet definition is used to define a facet to apply the requirement or to require the information according to IDS developed by buildingSMART International</p>
+                        <p>IDS facet definition is used to define a facet to apply the requirement or to require the information according to IDS standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
@@ -1062,11 +1043,11 @@
                 <tr>
                     <th>Sub-classes</th>
                     <td>
-                        <a href="#Attribut">loin:Attribute</a><sup class="sup-c" title="class">c</sup><br/>
-                        <a href="#Classification">loin:Classification</a><sup class="sup-c" title="class">c</sup><br/>
-                        <a href="#Material">loin:Material</a><sup class="sup-c" title="class">c</sup><br/>
-                        <a href="#Entity">loin:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#ClassificationofIDS">loin:Classification</a><sup class="sup-c" title="class">c</sup><br/>
                         <a href="#Property">loin:Property</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#AttributofIDS">loin:Attribute</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#Entity">loin:Entity</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#Material">loin:Material</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
                 <tr>
@@ -1089,12 +1070,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#IDSFacetParameter</code></td>
+                    <td><code>https://w3id.org/loin#IDSFacetParameter</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>IDS facet parameter is used to specify a facet definition according to IDS developed by buildingSMART International</p>
+                        <p>IDS facet parameter is used to specify a facet definition according to IDS standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
@@ -1107,18 +1088,18 @@
                     <th>Sub-classes</th>
                     <td>
                         <a href="#Attributename">loin:AttributeName</a><sup class="sup-c" title="class">c</sup><br/>
-                        <a href="#Propertysetname">loin:PsetName</a><sup class="sup-c" title="class">c</sup><br/>
-                        <a href="#Entityname">loin:EntityName</a><sup class="sup-c" title="class">c</sup><br/>
                         <a href="#IFCdatatype">loin:IFCDataType</a><sup class="sup-c" title="class">c</sup><br/>
-                        <a href="#Propertyname">loin:PropertyName</a><sup class="sup-c" title="class">c</sup><br/>
                         <a href="#Value">loin:Value</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#Entityname">loin:EntityName</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#Propertyname">loin:PropertyName</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#Propertysetname">loin:PsetName</a><sup class="sup-c" title="class">c</sup><br/>
                         <a href="#Predefinedtype">loin:PredefinedType</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
                 <tr>
                     <th>In domain of</th>
                     <td>
-                        <a href="#RestrictionFormulation">loin:RestrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
+                        <a href="#Constrainttextformulatedforfacetparameters">loin:restrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
                         <a href="#hasrestrictiontype">loin:hasRestrictionType</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
@@ -1129,12 +1110,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#IDSRequirementType</code></td>
+                    <td><code>https://w3id.org/loin#IDSRequirementType</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>IDS requirement type is used to specify a requirement, if it is optional or mandatory according to IDS developed by buildingSMART International</p>
+                        <p>IDS requirement type is used to specify a requirement, if it is optional or mandatory according to IDS standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
@@ -1156,12 +1137,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#IDSRestrictionType</code></td>
+                    <td><code>https://w3id.org/loin#IDSRestrictionType</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Restriction type is used to define the value of IDS facet parameter according to IDS developed by buildingSMART International</p>
+                        <p>Restriction type is used to specify the value of IDS facet parameter, that is defined in restriction formulation. The restriction types are based on IDS standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
@@ -1183,12 +1164,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#IFCDataType</code></td>
+                    <td><code>https://w3id.org/loin#IFCDataType</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>IFC data type must be a valid predefined type from the IFC schema according to IDS developed by buildingSMART International</p>
+                        <p>IFC data type must be a valid predefined type from the IFC schema according to IDS standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
@@ -1200,10 +1181,8 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
-                        <a href="#hasrestrictiontype">loin:hasRestrictionType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">value</span> <a href="http://www.inf.bi.rub.de/loin/ns#SimpleValue">loin:SimpleValue</a>
-                        <sup
-                            class="sup-c" title="class">c</sup><br/>
-                            <a href="#RestrictionFormulation">loin:RestrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#Constrainttextformulatedforfacetparameters">loin:restrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#hasrestrictiontype">loin:hasRestrictionType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
@@ -1219,7 +1198,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Identification</code></td>
+                    <td><code>https://w3id.org/loin#Identification</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1258,7 +1237,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Identifier</code></td>
+                    <td><code>https://w3id.org/loin#Identifier</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1275,9 +1254,9 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
-                        <a href="#value">loin:value</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
-                        <a href="#hasidentifiertype">loin:hasIdentifierType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                         <a href="#hasbreakdownstructure">loin:hasBreakdownStructure</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#hasidentifiertype">loin:hasIdentifierType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#value">loin:value</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
@@ -1289,8 +1268,8 @@
                 <tr>
                     <th>In range of</th>
                     <td>
-                        <a href="#hasidentifier">loin:hasIdentifier</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#specifiedbyidentifier">loin:specifiedByIdentifier</a><br/>
+                        <a href="#hasidentifier">loin:hasIdentifier</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
             </table>
@@ -1300,7 +1279,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#IdentifierType</code></td>
+                    <td><code>https://w3id.org/loin#IdentifierType</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1333,7 +1312,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Information</code></td>
+                    <td><code>https://w3id.org/loin#Information</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1350,14 +1329,14 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
-                        <a href="#requested">loin:requested</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#requestedasboolean,specifysifGeometricalinformationisneededaccordingtoBSEN17412-1(2020)">loin:requested</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
                     <th>In domain of</th>
                     <td>
-                        <a href="#requested">loin:requested</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
                         <a href="#hasalphanumericalinformatoncontent">loin:hasInformationContent</a><sup class="sup-op" title="object property">op</sup><br/>
+                        <a href="#requestedasboolean,specifysifGeometricalinformationisneededaccordingtoBSEN17412-1(2020)">loin:requested</a><sup class="sup-dp" title="datatype property">dp</sup><br/>
                         <a href="#hasidentification">loin:hasIdentification</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
@@ -1374,7 +1353,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#InformationContent</code></td>
+                    <td><code>https://w3id.org/loin#InformationContent</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1405,8 +1384,8 @@
                 <tr>
                     <th>In range of</th>
                     <td>
-                        <a href="#belongstoinformationcontent">loin:belongsToInformationContent</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#hasalphanumericalinformatoncontent">loin:hasInformationContent</a><sup class="sup-op" title="object property">op</sup><br/>
+                        <a href="#belongstoinformationcontent">loin:belongsToInformationContent</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
             </table>
@@ -1416,7 +1395,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#InformationDeliveryMilestone</code></td>
+                    <td><code>https://w3id.org/loin#InformationDeliveryMilestone</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1433,9 +1412,9 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
+                        <a href="#hasinformationreceiver">loin:hasReceiver</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                         <a href="#hasprovider">loin:hasProvider</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                         <a href="#hasobject">loin:hasObject</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">min</span> 1<br/>
-                        <a href="#hasinformationreceiver">loin:hasReceiver</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                         <a href="#haspurpose">loin:hasPurpose</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
@@ -1443,10 +1422,10 @@
                     <th>In domain of</th>
                     <td>
                         <a href="#isrelatedtocontainerdescription">loin:isRelatedToContainerDescription</a><sup class="sup-op" title="object property">op</sup><br/>
-                        <a href="#haspurpose">loin:hasPurpose</a><sup class="sup-op" title="object property">op</sup><br/>
-                        <a href="#hasinformationreceiver">loin:hasReceiver</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#hasprovider">loin:hasProvider</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#hasobject">loin:hasObject</a><sup class="sup-op" title="object property">op</sup><br/>
+                        <a href="#haspurpose">loin:hasPurpose</a><sup class="sup-op" title="object property">op</sup><br/>
+                        <a href="#hasinformationreceiver">loin:hasReceiver</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
             </table>
@@ -1456,7 +1435,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#InformationProvider</code></td>
+                    <td><code>https://w3id.org/loin#InformationProvider</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1483,7 +1462,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#InformationReceiver</code></td>
+                    <td><code>https://w3id.org/loin#InformationReceiver</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1510,7 +1489,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Location</code></td>
+                    <td><code>https://w3id.org/loin#Location</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1524,12 +1503,6 @@
                         <a href="#Geometricalinformationspecification">loin:GeometrySpecification</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
-                <tr>
-                    <th>In range of</th>
-                    <td>
-                        <a href="#haslocation">loin:hasLocation</a><sup class="sup-op" title="object property">op</sup><br/>
-                    </td>
-                </tr>
             </table>
         </div>
         <div class="entity class" id="Material">
@@ -1537,18 +1510,18 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Material</code></td>
+                    <td><code>https://w3id.org/loin#Material</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Material is an IDS facet according to IDS developed by buildingSMART International</p>
+                        <p>Material is a facet of Information Delivery Specification(IDS), a standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
                     <th>Super-classes</th>
                     <td>
-                        <a href="#IDSfacetDefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#IDSfacetdefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
                 <tr>
@@ -1564,7 +1537,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Object</code></td>
+                    <td><code>https://w3id.org/loin#Object</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1581,17 +1554,17 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
-                        <a href="#hasalphanumericalinformation">loin:hasInformation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
                         <a href="#hasgeometricalinformation">loin:hasGeometry</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
+                        <a href="#hasalphanumericalinformation">loin:hasInformation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
                         <a href="#hasdocumentation">loin:hasDocumentation</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">max</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
                     <th>In domain of</th>
                     <td>
-                        <a href="#hasalphanumericalinformation">loin:hasInformation</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#hasdocumentation">loin:hasDocumentation</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#hasgeometricalinformation">loin:hasGeometry</a><sup class="sup-op" title="object property">op</sup><br/>
+                        <a href="#hasalphanumericalinformation">loin:hasInformation</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
                 <tr>
@@ -1607,12 +1580,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#OntologyDataDefinition</code></td>
+                    <td><code>https://w3id.org/loin#OntologyDataDefinition</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Ontology data definition is used to specify the alphanumerical information according to a published or customized ontology</p>
+                        <p>Ontology data definition is an extension of BS EN 17412-1 (2020). It is used to specify the alphanumerical information according to a published or customized ontology</p>
                     </td>
                 </tr>
                 <tr>
@@ -1634,7 +1607,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#ParametricBehaviour</code></td>
+                    <td><code>https://w3id.org/loin#ParametricBehaviour</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1648,12 +1621,6 @@
                         <a href="#Geometricalinformationspecification">loin:GeometrySpecification</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
-                <tr>
-                    <th>In range of</th>
-                    <td>
-                        <a href="#hasparametricbehaviour">loin:hasParametricBehaviour</a><sup class="sup-op" title="object property">op</sup><br/>
-                    </td>
-                </tr>
             </table>
         </div>
         <div class="entity class" id="Predefinedtype">
@@ -1661,12 +1628,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#PredefinedType</code></td>
+                    <td><code>https://w3id.org/loin#PredefinedType</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Predefined type must be a valid predefined type from the IFC schema, or any custom text value according to IDS developed by buildingSMART International</p>
+                        <p>Predefined type must be a valid predefined type from the IFC schema, or any custom text value according to IDS standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
@@ -1678,6 +1645,7 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
+                        <a href="#Constrainttextformulatedforfacetparameters">loin:restrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                         <a href="#hasrestrictiontype">loin:hasRestrictionType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
@@ -1694,35 +1662,35 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Property</code></td>
+                    <td><code>https://w3id.org/loin#Property</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Property is an IDS facet according to IDS developed by buildingSMART International</p>
+                        <p>Property is a facet of Information Delivery Specification(IDS), a standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
                     <th>Super-classes</th>
                     <td>
-                        <a href="#IDSfacetDefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup><br/>
+                        <a href="#IDSfacetdefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup><br/>
                     </td>
                 </tr>
                 <tr>
                     <th>Restrictions</th>
                     <td>
-                        <a href="#belongstoPset">loin:belongsToPset</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
-                        <a href="#haspropertyname">loin:hasPropertyName</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#ApropertybelongstoPropertyset">loin:belongsToPset</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                         <a href="#hasIFCdatatype">loin:hasIFCDataType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#haspropertyname">loin:hasPropertyName</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
                     <th>In domain of</th>
                     <td>
+                        <a href="#ApropertybelongstoPropertyset">loin:belongsToPset</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#hasIFCdatatype">loin:hasIFCDataType</a><sup class="sup-op" title="object property">op</sup><br/>
-                        <a href="#haspropertyname">loin:hasPropertyName</a><sup class="sup-op" title="object property">op</sup><br/>
-                        <a href="#belongstoPset">loin:belongsToPset</a><sup class="sup-op" title="object property">op</sup><br/>
                         <a href="#hasvalue">loin:hasValue</a><sup class="sup-op" title="object property">op</sup><br/>
+                        <a href="#haspropertyname">loin:hasPropertyName</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
             </table>
@@ -1732,12 +1700,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#PropertyName</code></td>
+                    <td><code>https://w3id.org/loin#PropertyName</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Property name must be a valid name from the IFC schema, or any custom text value according to IDS developed by buildingSMART International</p>
+                        <p>Property name must be a valid name from the IFC schema, or any custom text value according to IDS stan developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
@@ -1749,10 +1717,9 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
-                        <a href="#RestrictionFormulation">loin:RestrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
-                        <a href="#hasrestrictiontype">loin:hasRestrictionType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">value</span> <a href="http://www.inf.bi.rub.de/loin/ns#SimpleValue">loin:SimpleValue</a>
-                        <sup
-                            class="sup-c" title="class">c</sup><br/>
+                        <a href="#hasrestrictiontype">loin:hasRestrictionType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">value</span> <a href="https://w3id.org/loin#SimpleValue">loin:SimpleValue</a><sup class="sup-c"
+                            title="class">c</sup><br/>
+                        <a href="#Constrainttextformulatedforfacetparameters">loin:restrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
@@ -1768,12 +1735,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#PsetName</code></td>
+                    <td><code>https://w3id.org/loin#PsetName</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Property set name must be a valid name from the IFC schema, or any custom text value according to IDS developed by buildingSMART International</p>
+                        <p>Property set name must be a valid name from the IFC schema, or any custom text value according to IDS standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
@@ -1785,14 +1752,14 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
-                        <a href="#RestrictionFormulation">loin:RestrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#Constrainttextformulatedforfacetparameters">loin:restrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                         <a href="#hasrestrictiontype">loin:hasRestrictionType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
                 <tr>
                     <th>In range of</th>
                     <td>
-                        <a href="#belongstoPset">loin:belongsToPset</a><sup class="sup-op" title="object property">op</sup><br/>
+                        <a href="#ApropertybelongstoPropertyset">loin:belongsToPset</a><sup class="sup-op" title="object property">op</sup><br/>
                     </td>
                 </tr>
             </table>
@@ -1802,7 +1769,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Purpose</code></td>
+                    <td><code>https://w3id.org/loin#Purpose</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1841,12 +1808,12 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Value</code></td>
+                    <td><code>https://w3id.org/loin#Value</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        <p>Value can be any custom value according to IDS developed by buildingSMART International</p>
+                        <p>Value can be any custom value according to IDS standard developed by buildingSMART International</p>
                     </td>
                 </tr>
                 <tr>
@@ -1858,7 +1825,7 @@
                 <tr>
                     <th>Restrictions</th>
                     <td>
-                        <a href="#RestrictionFormulation">loin:RestrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
+                        <a href="#Constrainttextformulatedforfacetparameters">loin:restrictionFormulation</a><sup class="sup-dp" title="datatype property">dp</sup> <span class="cardinality">exactly</span> 1<br/>
                         <a href="#hasrestrictiontype">loin:hasRestrictionType</a><sup class="sup-op" title="object property">op</sup> <span class="cardinality">exactly</span> 1<br/>
                     </td>
                 </tr>
@@ -1875,15 +1842,12 @@
         <h2>Object Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
         <ul class="hlist">
             <li><a href="#belongstoinformationcontent">belongs to information content</a></li>
-            <li><a href="#belongstoPset">belongs to Pset</a></li>
+            <li><a href="#ApropertybelongstoPropertyset">A property belongs to Property set</a></li>
             <li><a href="#hasagent">has agent</a></li>
-            <li><a href="#hasappearance">has appearance</a></li>
             <li><a href="#hasapplicability">has applicability</a></li>
             <li><a href="#hasattributename">has attribute name</a></li>
             <li><a href="#hasbreakdownstructure">has breakdown structure</a></li>
             <li><a href="#hasbreakdownstructuretype">has breakdown structure type</a></li>
-            <li><a href="#hasdetail">has detail</a></li>
-            <li><a href="#hasdimensionality">has dimensionality</a></li>
             <li><a href="#hasdocument">has document</a></li>
             <li><a href="#hasdocumentatonspecification">has documentaton specification</a></li>
             <li><a href="#hasdocumentation">has documentation</a></li>
@@ -1896,10 +1860,7 @@
             <li><a href="#hasidentifiertype">has identifier type</a></li>
             <li><a href="#hasalphanumericalinformation">has alphanumerical information</a></li>
             <li><a href="#hasalphanumericalinformatoncontent">has alphanumerical informaton content</a></li>
-            <li><a href="#haslocation">has location</a></li>
             <li><a href="#hasobject">has object</a></li>
-            <li><a href="#hasparametervalue">has parameter value</a></li>
-            <li><a href="#hasparametricbehaviour">has parametric behaviour</a></li>
             <li><a href="#haspredefinedtype">has predefined type</a></li>
             <li><a href="#haspropertyname">has property name</a></li>
             <li><a href="#hasprovider">has provider</a></li>
@@ -1920,7 +1881,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#belongsToInformationContent</code></td>
+                    <td><code>https://w3id.org/loin#belongsToInformationContent</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        Specification of document, that relates with a respective person
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -1936,12 +1903,18 @@
                 </tr>
             </table>
         </div>
-        <div class="entity property" id="belongstoPset">
-            <h3>belongs to Pset<sup title="object property" class="sup-op">op</sup></h3>
+        <div class="entity property" id="ApropertybelongstoPropertyset">
+            <h3>A property belongs to Property set<sup title="object property" class="sup-op">op</sup></h3>
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#belongsToPset</code></td>
+                    <td><code>https://w3id.org/loin#belongsToPset</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        Specification is used for facet property of IDS data definition.
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -1962,7 +1935,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasAgent</code></td>
+                    <td><code>https://w3id.org/loin#hasAgent</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -1978,32 +1951,17 @@
                 </tr>
             </table>
         </div>
-        <div class="entity property" id="hasappearance">
-            <h3>has appearance<sup title="object property" class="sup-op">op</sup></h3>
-            <table>
-                <tr>
-                    <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasAppearance</code></td>
-                </tr>
-                <tr>
-                    <th>Range(s)</th>
-                    <td>
-                        <a href="#Appearance">loin:Appearance</a><sup class="sup-c" title="class">c</sup>
-                    </td>
-                </tr>
-            </table>
-        </div>
         <div class="entity property" id="hasapplicability">
             <h3>has applicability<sup title="object property" class="sup-op">op</sup></h3>
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasApplicability</code></td>
+                    <td><code>https://w3id.org/loin#hasApplicability</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
                     <td>
-                        The object property describes the applicability of a facet for the specification
+                        The object property describes the applicability of a facet for the specification according to IDS definition
                     </td>
                 </tr>
                 <tr>
@@ -2015,7 +1973,7 @@
                 <tr>
                     <th>Range(s)</th>
                     <td>
-                        <a href="#IDSfacetDefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#IDSfacetdefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
             </table>
@@ -2025,12 +1983,18 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasAttributeName</code></td>
+                    <td><code>https://w3id.org/loin#hasAttributeName</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the attribute name with the facet attribute according to IDS definition
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
                     <td>
-                        <a href="#Attribut">loin:Attribute</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#AttributofIDS">loin:Attribute</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
                 <tr>
@@ -2046,7 +2010,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasBreakdownStructure</code></td>
+                    <td><code>https://w3id.org/loin#hasBreakdownStructure</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the identification with a breakdown structure according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2067,7 +2037,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasBreakdownStructureType</code></td>
+                    <td><code>https://w3id.org/loin#hasBreakdownStructureType</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates a specific type with the breakdown structure according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2083,42 +2059,18 @@
                 </tr>
             </table>
         </div>
-        <div class="entity property" id="hasdetail">
-            <h3>has detail<sup title="object property" class="sup-op">op</sup></h3>
-            <table>
-                <tr>
-                    <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasDetail</code></td>
-                </tr>
-                <tr>
-                    <th>Range(s)</th>
-                    <td>
-                        <a href="#Detail">loin:Detail</a><sup class="sup-c" title="class">c</sup>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="entity property" id="hasdimensionality">
-            <h3>has dimensionality<sup title="object property" class="sup-op">op</sup></h3>
-            <table>
-                <tr>
-                    <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasDimensionality</code></td>
-                </tr>
-                <tr>
-                    <th>Range(s)</th>
-                    <td>
-                        <a href="#Dimensionality">loin:Dimensionality</a><sup class="sup-c" title="class">c</sup>
-                    </td>
-                </tr>
-            </table>
-        </div>
         <div class="entity property" id="hasdocument">
             <h3>has document<sup title="object property" class="sup-op">op</sup></h3>
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasDocument</code></td>
+                    <td><code>https://w3id.org/loin#hasDocument</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates a set of documents with documentation according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2133,7 +2085,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasDocumentSpecification</code></td>
+                    <td><code>https://w3id.org/loin#hasDocumentSpecification</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the document specifications with a document according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2154,7 +2112,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasDocumentation</code></td>
+                    <td><code>https://w3id.org/loin#hasDocumentation</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the documentation with a LOIN object according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2175,7 +2139,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasEntityName</code></td>
+                    <td><code>https://w3id.org/loin#hasEntityName</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the entity name with the facet entity according to IDS definition
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2196,7 +2166,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasGeometry</code></td>
+                    <td><code>https://w3id.org/loin#hasGeometry</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the geometrical information with a LOIN object according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2217,7 +2193,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasGeometrySpecification</code></td>
+                    <td><code>https://w3id.org/loin#hasGeometrySpecification</code></td>
                 </tr>
                 <tr>
                     <th>Description</th>
@@ -2244,7 +2220,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasIFCDataType</code></td>
+                    <td><code>https://w3id.org/loin#hasIFCDataType</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the IFC data type with the facet property according to IDS definition
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2265,7 +2247,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasIdentification</code></td>
+                    <td><code>https://w3id.org/loin#hasIdentification</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the identification of a breakdown structure with an alphanumerical information according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2286,7 +2274,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasIdentifier</code></td>
+                    <td><code>https://w3id.org/loin#hasIdentifier</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates a breakdown structure with its identifier according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2307,7 +2301,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasIdentifierType</code></td>
+                    <td><code>https://w3id.org/loin#hasIdentifierType</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates an identifier of breakdown structure with a specific type according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2328,7 +2328,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasInformation</code></td>
+                    <td><code>https://w3id.org/loin#hasInformation</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates an alphanumerical information with a LOIN object according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2349,7 +2355,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasInformationContent</code></td>
+                    <td><code>https://w3id.org/loin#hasInformationContent</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the detailed content with alphanumerical information according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2365,27 +2377,18 @@
                 </tr>
             </table>
         </div>
-        <div class="entity property" id="haslocation">
-            <h3>has location<sup title="object property" class="sup-op">op</sup></h3>
-            <table>
-                <tr>
-                    <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasLocation</code></td>
-                </tr>
-                <tr>
-                    <th>Range(s)</th>
-                    <td>
-                        <a href="#Location">loin:Location</a><sup class="sup-c" title="class">c</sup>
-                    </td>
-                </tr>
-            </table>
-        </div>
         <div class="entity property" id="hasobject">
             <h3>has object<sup title="object property" class="sup-op">op</sup></h3>
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasObject</code></td>
+                    <td><code>https://w3id.org/loin#hasObject</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the objects with the information delivery milestone according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2401,36 +2404,18 @@
                 </tr>
             </table>
         </div>
-        <div class="entity property" id="hasparametervalue">
-            <h3>has parameter value<sup title="object property" class="sup-op">op</sup></h3>
-            <table>
-                <tr>
-                    <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasParameterValue</code></td>
-                </tr>
-            </table>
-        </div>
-        <div class="entity property" id="hasparametricbehaviour">
-            <h3>has parametric behaviour<sup title="object property" class="sup-op">op</sup></h3>
-            <table>
-                <tr>
-                    <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasParametricBehaviour</code></td>
-                </tr>
-                <tr>
-                    <th>Range(s)</th>
-                    <td>
-                        <a href="#Parametricbehaviour">loin:ParametricBehaviour</a><sup class="sup-c" title="class">c</sup>
-                    </td>
-                </tr>
-            </table>
-        </div>
         <div class="entity property" id="haspredefinedtype">
             <h3>has predefined type<sup title="object property" class="sup-op">op</sup></h3>
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasPredefinedType</code></td>
+                    <td><code>https://w3id.org/loin#hasPredefinedType</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates a predefined type with the facet entity according to IDS definition
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2451,7 +2436,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasPropertyName</code></td>
+                    <td><code>https://w3id.org/loin#hasPropertyName</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates a property name type with the facet property according to IDS definition
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2472,7 +2463,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasProvider</code></td>
+                    <td><code>https://w3id.org/loin#hasProvider</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the information provider with the information delivery milestone according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2493,7 +2490,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasPurpose</code></td>
+                    <td><code>https://w3id.org/loin#hasPurpose</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the purpose with the information delivery milestone according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2514,7 +2517,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasReceiver</code></td>
+                    <td><code>https://w3id.org/loin#hasReceiver</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the information receiver with the information delivery milestone according to BS EN 17412-1 (2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2535,7 +2544,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasReferenceSource</code></td>
+                    <td><code>https://w3id.org/loin#hasReferenceSource</code></td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2546,8 +2555,8 @@
                 <tr>
                     <th>Range(s)</th>
                     <td>
-                        <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a><sup class="sup-c" title="class">c</sup>
                         <a href="http://www.w3.org/2002/07/owl#Thing">owl:Thing</a><sup class="sup-c" title="class">c</sup>
+                        <a href="http://www.w3.org/2001/XMLSchema#anyURI">xsd:anyURI</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
             </table>
@@ -2557,7 +2566,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasRequirement</code></td>
+                    <td><code>https://w3id.org/loin#hasRequirement</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the requirements with the IDS data definition
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2568,7 +2583,7 @@
                 <tr>
                     <th>Range(s)</th>
                     <td>
-                        <a href="#IDSfacetDefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#IDSfacetdefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
             </table>
@@ -2578,12 +2593,18 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasRequirementType</code></td>
+                    <td><code>https://w3id.org/loin#hasRequirementType</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        relates the requirement type with the defined requirements in IDS data definition
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
                     <td>
-                        <a href="#IDSfacetDefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#IDSfacetdefinition">loin:IDSFacetDefinition</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
                 <tr>
@@ -2599,7 +2620,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasRestrictionType</code></td>
+                    <td><code>https://w3id.org/loin#hasRestrictionType</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        relates the restriction type with the facet parameter in IDS data definition
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2620,14 +2647,20 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#hasValue</code></td>
+                    <td><code>https://w3id.org/loin#hasValue</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        relates the value with a facet in IDS data definition
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
                     <td>
-                        <a href="#Attribut">loin:Attribute</a><sup class="sup-c" title="class">c</sup>
-                        <a href="#Material">loin:Material</a><sup class="sup-c" title="class">c</sup>
                         <a href="#Property">loin:Property</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#AttributofIDS">loin:Attribute</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#Material">loin:Material</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
                 <tr>
@@ -2643,13 +2676,19 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#isRelatedToContainerDescription</code></td>
+                    <td><code>https://w3id.org/loin#isRelatedToContainerDescription</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property is an extension with ICDD. It relates the information delivery milestone defined by BS EN 17412-1(2020) with container description
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
                     <td>
-                        <a href="#Informationdeliverymilestone">loin:InformationDeliveryMilestone</a><sup class="sup-c" title="class">c</sup>
                         <a href="#Purpose">loin:Purpose</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#Informationdeliverymilestone">loin:InformationDeliveryMilestone</a><sup class="sup-c" title="class">c</sup>
                     </td>
                 </tr>
                 <tr>
@@ -2665,7 +2704,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#isRelatedToContainerDocument</code></td>
+                    <td><code>https://w3id.org/loin#isRelatedToContainerDocument</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property is an extension with ICDD. It relates documents defined by BS EN 17412-1(2020) with container documents
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2686,7 +2731,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#isRelatedToContainerLinkset</code></td>
+                    <td><code>https://w3id.org/loin#isRelatedToContainerLinkset</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property is an extension with ICDD. It relates ontological document defined by BS EN 17412-1(2020) with container linkset or data set
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2707,7 +2758,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#isRelatedToLoinDocument</code></td>
+                    <td><code>https://w3id.org/loin#isRelatedToLoinDocument</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property relates the alphanumerical information content with document according to BS EN 17412-1(2020)
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2728,17 +2785,67 @@
     <section id="datatypeproperties">
         <h2>Datatype Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
         <ul class="hlist">
-            <li><a href="#RestrictionFormulation">RestrictionFormulation</a></li>
             <li><a href="#description">description</a></li>
-            <li><a href="#requested">requested</a></li>
+            <li><a href="#requestedasboolean,specifysifGeometricalinformationisneededaccordingtoBSEN17412-1(2020)">requested as boolean, specifys if Geometrical information is needed according to BS EN 17412-1 (2020)</a></li>
+            <li><a href="#Constrainttextformulatedforfacetparameters">Constraint text formulated for facet parameters</a></li>
             <li><a href="#value">value</a></li>
         </ul>
-        <div class="entity property" id="RestrictionFormulation">
-            <h3>RestrictionFormulation<sup title="datatype property" class="sup-dp">dp</sup></h3>
+        <div class="entity property" id="description">
+            <h3>description<sup title="datatype property" class="sup-dp">dp</sup></h3>
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#RestrictionFormulation</code></td>
+                    <td><code>https://w3id.org/loin#description</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        Description provide detail and extend of information derived by Information Delivery Specification (IDS)
+                    </td>
+                </tr>
+                <tr>
+                    <th>Domain(s)</th>
+                    <td>
+                        (<a href="#Alphanumericalinformationcontent">loin:InformationContent</a><sup class="sup-c" title="class">c</sup> or <a href="#Purpose">loin:Purpose</a><sup class="sup-c" title="class">c</sup>)
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="entity property" id="requestedasboolean,specifysifGeometricalinformationisneededaccordingtoBSEN17412-1(2020)">
+            <h3>requested as boolean, specifys if Geometrical information is needed according to BS EN 17412-1 (2020)<sup title="datatype property" class="sup-dp">dp</sup></h3>
+            <table>
+                <tr>
+                    <th>IRI</th>
+                    <td><code>https://w3id.org/loin#requested</code></td>
+                </tr>
+                <tr>
+                    <th>Domain(s)</th>
+                    <td>
+                        <a href="#Geometricalinformation">loin:Geometry</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#Alphanumericalinformation">loin:Information</a><sup class="sup-c" title="class">c</sup>
+                        <a href="#Geometricalinformationspecification">loin:GeometrySpecification</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Range(s)</th>
+                    <td>
+                        <a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a><sup class="sup-c" title="class">c</sup>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="entity property" id="Constrainttextformulatedforfacetparameters">
+            <h3>Constraint text formulated for facet parameters<sup title="datatype property" class="sup-dp">dp</sup></h3>
+            <table>
+                <tr>
+                    <th>IRI</th>
+                    <td><code>https://w3id.org/loin#restrictionFormulation</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        Restriction formulation is for formulating facet parameter value, that is used by IDS definition.
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2754,87 +2861,17 @@
                 </tr>
             </table>
         </div>
-        <div class="entity property" id="description">
-            <h3>description<sup title="datatype property" class="sup-dp">dp</sup></h3>
-            <table>
-                <tr>
-                    <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#description</code></td>
-                </tr>
-                <tr>
-                    <th>Domain(s)</th>
-                    <td>
-                        (<a href="#Alphanumericalinformationcontent">loin:InformationContent</a><sup class="sup-c" title="class">c</sup> or <a href="#Purpose">loin:Purpose</a><sup class="sup-c" title="class">c</sup>)
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="entity property" id="requested">
-            <h3>requested<sup title="datatype property" class="sup-dp">dp</sup></h3>
-            <table>
-                <tr>
-                    <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#requested</code></td>
-                </tr>
-                <tr>
-                    <th>Domain(s)</th>
-                    <td>
-                        <a href="#Alphanumericalinformation">loin:Information</a><sup class="sup-c" title="class">c</sup>
-                        <a href="#Geometricalinformation">loin:Geometry</a><sup class="sup-c" title="class">c</sup>
-                        <a href="#Geometricalinformationspecification">loin:GeometrySpecification</a><sup class="sup-c" title="class">c</sup>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Range(s)</th>
-                    <td>
-                        <a href="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a><sup class="sup-c" title="class">c</sup>
-                    </td>
-                </tr>
-            </table>
-        </div>
         <div class="entity property" id="value">
             <h3>value<sup title="datatype property" class="sup-dp">dp</sup></h3>
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#value</code></td>
-                </tr>
-            </table>
-        </div>
-    </section>
-
-    <section id="annotationproperties">
-        <h2>Annotation Properties <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
-        <ul class="hlist">
-            <li><a href="#Description">Description</a></li>
-            <li><a href="#name">name</a></li>
-        </ul>
-        <div class="entity property" id="Description">
-            <h3>Description<sup title="annotation property" class="sup-ap">ap</sup></h3>
-            <table>
-                <tr>
-                    <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#Description</code></td>
+                    <td><code>https://w3id.org/loin#value</code></td>
                 </tr>
                 <tr>
-                    <th>Range(s)</th>
+                    <th>Description</th>
                     <td>
-                        <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="entity property" id="name">
-            <h3>name<sup title="annotation property" class="sup-ap">ap</sup></h3>
-            <table>
-                <tr>
-                    <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#name</code></td>
-                </tr>
-                <tr>
-                    <th>Range(s)</th>
-                    <td>
-                        <a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a><sup class="sup-c" title="class">c</sup>
+                        value for general definition
                     </td>
                 </tr>
             </table>
@@ -2853,7 +2890,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#isRelatedToContainerParty</code></td>
+                    <td><code>https://w3id.org/loin#isRelatedToContainerParty</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property is an extension with ICDD. It relates the actors defined by BS EN 17412-1(2020) with container party
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2874,7 +2917,13 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#isRelatedToLinksetIdentifier</code></td>
+                    <td><code>https://w3id.org/loin#isRelatedToLinksetIdentifier</code></td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>
+                        The object property is an extension with ICDD. It relates the identifier type defined by BS EN 17412-1(2020) with linkset identifier
+                    </td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2895,7 +2944,7 @@
             <table>
                 <tr>
                     <th>IRI</th>
-                    <td><code>http://www.inf.bi.rub.de/loin/ns#specifiedByIdentifier</code></td>
+                    <td><code>https://w3id.org/loin#specifiedByIdentifier</code></td>
                 </tr>
                 <tr>
                     <th>Domain(s)</th>
@@ -2924,7 +2973,7 @@
         <h2>Namespaces <span style="float:right; font-size:smaller;"><a href="">&uparrow;</a></span></h2>
         <dl>
             <dt><em>default (:)</em></dt>
-            <dd><code>http://www.inf.bi.rub.de/loin/ns#</code></dd>
+            <dd><code>https://w3id.org/loin#</code></dd>
             <dt>Container</dt>
             <dd><code>https://standards.iso.org/iso/21597/-1/ed-1/en/Container#</code></dd>
             <dt>Linkset</dt>
@@ -2934,7 +2983,7 @@
             <dt>foaf</dt>
             <dd><code>http://xmlns.com/foaf/0.1#</code></dd>
             <dt>loin</dt>
-            <dd><code>http://www.inf.bi.rub.de/loin/ns#</code></dd>
+            <dd><code>https://w3id.org/loin#</code></dd>
             <dt>owl</dt>
             <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
             <dt>prov</dt>
@@ -2951,6 +3000,8 @@
             <dd><code>http://www.w3.org/2004/02/skos/core#</code></dd>
             <dt>vann</dt>
             <dd><code>http://purl.org/vocab/vann/</code></dd>
+            <dt>vs</dt>
+            <dd><code>http://www.w3.org/2003/06/sw-vocab-status/ns#</code></dd>
             <dt>xml</dt>
             <dd><code>http://www.w3.org/XML/1998/namespace</code></dd>
             <dt>xsd</dt>
